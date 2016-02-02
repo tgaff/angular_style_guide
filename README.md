@@ -3,6 +3,7 @@
 
 ## Example:
 Use `data-` attributes instead of regular angular attributes.
+
 BAD:
 ```
  <div ng-controller="MainCtrl">
