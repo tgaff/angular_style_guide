@@ -33,3 +33,32 @@ Recommended:
     {{ customer.name }}
 </div>
 ```
+
+### define named functions for each component first
+Declare named functions and build the module afterward.  This does have the downside of excessive chaining, but since we're using named functions it's readable.  We also 
+
+Avoid:
+```js
+angular
+  .module('app', [])
+  .controller('MainCtrl', function MainCtrl () {
+
+  })
+  .service('SomeService', function SomeService () {
+
+  });
+```
+
+Recommended:
+```js
+function MainCtrl () {
+
+}
+function SomeService () {
+
+}
+angular
+  .module('app', [])
+  .controller('MainCtrl', MainCtrl)
+  .service('SomeService', SomeService);
+ ```
