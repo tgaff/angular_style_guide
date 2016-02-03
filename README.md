@@ -90,9 +90,66 @@ angular
   .controller('MainCtrl', MainCtrl)
   .factory('SomeFactory', SomeFactory);
 ```
+# When talking about directives
+Use these guidelines when introducing and working with directives.
+
+### Directives not controllers should manipulate the DOM.
+
+In general DOM manipulations should be done in directives not controllers or services.  This excludes built-ins such as `ngShow`, `ngHide`, angular animations and templates.  CSS and animations can also be used independently.
+
+### Controller-as in Directives
+
+Remember to specify `controllerAs` in directives.  It's also extremely common to use `vm` as the name in this case.
+
+Avoid:
+```js
+function dragUpload () {
+  return {
+    controller: function ($scope) {
+
+    }
+  };
+}
+angular
+  .module('app')
+  .directive('dragUpload', dragUpload);
+```
+Prefer:
+```js
+function dragUpload () {
+  return {
+    controllerAs: 'vm',
+    controller: function () {
+
+    }
+  };
+}
+angular
+  .module('app')
+  .directive('dragUpload', dragUpload);
+```
+
+[code from](https://github.com/toddmotto/angular-styleguide#directives)
+
+# When working with factories and services
+Use these guidelines when introducing factories and services.
+
+### Don't ng-* prefix directives.
+
+This could conflict with newer versions.
+
+Avoid:
+```js
+<div ng-upload>
+```
+
+Prefer:
+```
+<div drag-upload>
+```
 
 
-### Factories vs. services
+### Factories vs. Services
 
 Use Factories.  
 This conforms with other styleguides.  
