@@ -105,19 +105,18 @@ Service Pattern - Avoid:
 ```js
 function UserModel(){
 	this.doSomething = function(){
-		//…
-}
+    	//…
+  	}
 }
 ```
 
 Factory Pattern - Prefer:
-
 ```js
 function UserModel(){
 	var UserCtrl = {};
 	UserCtrl.doSomething = function(){
 		//...
-}
+	}
  	return UserCtrl;
 }
 ```
