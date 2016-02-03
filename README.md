@@ -179,8 +179,8 @@ Prefer:
 
 ### Factories vs. Services
 
-Use Factories.  
-This conforms with other styleguides.  
+Use Factories.  This conforms with [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide#style-y040).  
+Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.
 
 > It should be noted that Services are closer to the way we teach controllers and might therefore be easier for students.  An argument could be made for flipping this rule as long as it's done consistently.  
 
