@@ -255,3 +255,22 @@ Since we're using controller-as and `this` in our controllers, `$scope` will onl
 
 > Note: when using $scope one should always pass objects, not scalars.
 > Use `$scope.obj = {}` rather than `$scope.foo = 'adsf'`
+
+### capture `this` in a `vm` or other variable in controllers
+
+Context of `this` could be changed in a function within a controller.  Capturing in another name avoids this issue.  Note how this rule works with controller-as.  
+
+Avoid:
+```js
+function PostsController() {
+    this.title = 'Some Title';
+}
+```
+Prefer:
+```js
+function PostsController() {
+    var vm = this;
+    vm.title = 'Some Title';
+}
+```
+> Note: We could use this rule immediately with likely little additional trouble.
