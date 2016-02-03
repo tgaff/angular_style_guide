@@ -4,11 +4,12 @@ There are many good styleguides already available for Angular. [here](https://gi
 
 This styleguide is different in that it's focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, and with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set rules so that we teach proper Angular with a common syntax, while slowly introducing additional syntactical complexity. 
 
-## Examples:
+## Immediate Guidelines:
+These guidelines are suggested for all code given to students.  
 
-### data- attributes
+### prefix data- on attributes and directives
 
-Use `data-` attributes instead of regular angular attributes.
+Use `data-` prefixed attributes instead of raw angular attributes/directives.  These pass HTML validators.
 
 Avoid:
 ```html
@@ -21,10 +22,10 @@ Recommended:
 
 ### controller as syntax
 
-Use controller as syntax, which promotes use of dot syntax to indicate where variables come from.
+Use Controller as syntax, which promotes the use of dot syntax in HTML to indicate where variables come from.  This also means it is possible to safely use scalars on the controller.  You must also avoid the use of `$scope` and use `this` instead in your controllers.
 
 Avoid:
-```js
+```html
 <div ng-controller="CustomerController">
     {{ name }}
 </div>
@@ -37,8 +38,15 @@ Recommended:
 </div>
 ```
 
-### define named functions for each component first
-Declare named functions and build the module afterward.  This does have the downside of excessive chaining, but since we're using named functions it's readable.  We also 
+#### mention $scope in controllers
+
+Since we're using controller-as and `this` in our controllers, `$scope` will only rarely be used.  However, students are going to come across blogs, older code and stackoverflow posts that use `$scope` frequently.  We should mention how this works, at least in writing, but not right away. 
+
+> Note: when using $scope always pass objects, not scalars if not using controller-as
+> Use `$scope.obj = {}` rather than `$scope.foo = 'adsf'`
+
+### define named functions for each component 
+Declare named functions for controllers and other components. 
 
 Avoid:
 ```js
@@ -68,11 +76,26 @@ function SomeService () {
 }
  ```
 
-### always pass objects, not values
+### use dot chaining to build the app rather than repetition of an app variable
+In general multi-line dot-chaining is more prone to error, but since we're also avoiding in-line call-backs, the issue should be greatly reduced and overall readability should remain high.  This also follows what other style-guides suggest. 
 
-ng-model="obj.foo"
-vs. 
-ng-model="foo"
+Avoid:
+```js
+var app = angular.module('app', []);
+app.controller('MainCtrl', function() {
+});
+app.factory('SomeFactory', function() {
+});
+```
+
+Recommended:
+```js
+angular
+  .module('app', [])
+  .controller('MainCtrl', MainCtrl)
+  .factory('SomeFactory', SomeFactory);
+```
+
 
 
 ### Factories vs. services
