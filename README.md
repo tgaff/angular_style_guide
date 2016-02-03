@@ -90,6 +90,34 @@ angular
   .controller('MainCtrl', MainCtrl)
   .factory('SomeFactory', SomeFactory);
 ```
+
+<!-- NAMING -->
+# Naming
+
+### Suffix should identify the type of module.
+
+Use `mapController` rather than `map`. Use `phoneService` rather than `phone`
+
+### Use camel case for controllers, directives, etc.
+
+Some style guides use DromedaryCase or UpperCamelCase such as `DoAwesomeController`.  This is primarily in preparation for ES6 and classes.  Students can use the syntax they're already used to.
+
+Avoid:
+```
+function LibraryController() { }
+```
+
+Prefer:
+```
+function libraryController() { }
+```
+
+### Filenames identify component separated by `.`
+
+The syntax should be `{feature}.{component}.js` or `logger.service.js`, `library.controller.js`.
+
+
+<!-- DIRECTIVES -->
 # When talking about directives
 Use these guidelines when introducing and working with directives.
 
