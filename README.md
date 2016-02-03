@@ -51,14 +51,39 @@ angular
 
 Recommended:
 ```js
+angular
+  .module('app', [])
+  .controller('MainCtrl', MainCtrl)
+  .service('SomeService', SomeService);
+
+
 function MainCtrl () {
 
 }
 function SomeService () {
 
 }
-angular
-  .module('app', [])
-  .controller('MainCtrl', MainCtrl)
-  .service('SomeService', SomeService);
  ```
+
+### always pass objects, not values
+
+ng-model="obj.foo"
+vs. 
+ng-model="foo"
+
+
+### Factories vs. services
+
+Use Factories
+
+
+## Directives
+
+### inject vs. inline annotation
+Use $inject vs. inline annotation
+PhoneListCtrl.$inject = ['$scope', '$http'];
+https://docs.angularjs.org/tutorial/step_05
+
+### use gulp or grunt once we get to mean
+Use ng-annotate for Gulp or Grunt
+*Use restrict (but not for students)
