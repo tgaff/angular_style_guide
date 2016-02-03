@@ -273,4 +273,4 @@ function PostsController() {
     vm.title = 'Some Title';
 }
 ```
-> Note: We could use this rule immediately with likely little additional trouble.
+> Note: We could use this rule immediately with likely little additional trouble. [discuss](https://github.com/tgaff/angular_style_guide/issues/2)
