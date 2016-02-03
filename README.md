@@ -1,5 +1,8 @@
-# comparison of styles
+# Purpose
 
+There are many good styleguides already available for Angular. [here](https://github.com/toddmotto/angular-styleguide) and [here](https://github.com/johnpapa/angular-styleguide)  
+
+This styleguide is different in that it's focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, and with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set rules so that we teach proper Angular with a common syntax, while slowly introducing additional syntactical complexity. 
 
 ## Examples:
 
