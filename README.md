@@ -2,11 +2,11 @@
 
 There are many good styleguides already available for Angular. [here](https://github.com/toddmotto/angular-styleguide) and [here](https://github.com/johnpapa/angular-styleguide)  So, why do we need another one?
 
-This styleguide is different in that it's focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, and with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set rules so that we teach proper Angular with a common syntax, while slowly introducing additional syntactical complexity. 
+This styleguide is different in that it is focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set rules so that we teach proper Angular with a syntax common to all lessons, while slowly introducing additional syntactical complexity. 
 
 tldr; This style-guide is aimed at students new to Angular, not angular professionals.
 
-## Immediate Guidelines:
+# Immediate Guidelines:
 These guidelines are suggested for all code given to students.  
 
 ### prefix data- on attributes and directives
@@ -92,7 +92,6 @@ angular
 ```
 
 
-
 ### Factories vs. services
 
 Use Factories.  
@@ -121,9 +120,10 @@ function UserModel(){
 }
 ```
 
-### When introducing minification
+# When introducing minification
+Use these rules when working with MEAN or Rails+Angular stacks or anywhere else where you might encounter minification.  They can be introduced after students have gained some familiarity with Angular.
 
-#### Use $inject vs. inline annotation for dependency injection
+### Use $inject vs. inline annotation for dependency injection
 
 Use $inject vs. inline annotation.  
 
@@ -149,7 +149,7 @@ function PhoneController($location, $routeParams) {...}
 
 > For a comparison see the [official angular tutorial](https://docs.angularjs.org/tutorial/step_05)
 
-#### Use gulp or grunt with MEAN stack, use asset-pipeline with Rails
+### Use gulp or grunt with MEAN stack, use asset-pipeline with Rails.
 
 If you're following the above use of `$inject` ng-annotate is unnecessary.  However, you should consider using `ng-strict-di` to alert you to missing annotations.  [Reference](https://docs.angularjs.org/api/ng/directive/ngApp)
 
@@ -161,10 +161,10 @@ Prefer:
 
 
 
-# Introduce later
+# Introduce eventually
+These rules should be mentioned at some point, but not right away.
 
-
-#### mention (but don't use) $scope in controllers
+### mention (but don't use) $scope in controllers
 
 Since we're using controller-as and `this` in our controllers, `$scope` will only rarely be used.  However, students are going to come across blogs, older code and stackoverflow posts that use `$scope` frequently.  We should mention how this works, at least in writing, but not right away. 
 
