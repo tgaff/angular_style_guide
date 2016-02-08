@@ -194,7 +194,7 @@ Services and Factories are exceedingly similar and the differences are very tric
 Service Pattern - Avoid:
 
 ```js
-function UserModel(){
+function someService(){
 	this.doSomething = function(){
     	//…
   	}
@@ -203,14 +203,19 @@ function UserModel(){
 
 Factory Pattern - Prefer:
 ```js
-function UserModel(){
-	var UserCtrl = {};
-	UserCtrl.doSomething = function(){
+function someFactory(){
+	var dataObj = {};
+	dataObj.doSomething = function(){
 		//...
 	}
- 	return UserCtrl;
+ 	return dataObj;
 }
 ```
+
+### Do not call Factories services
+
+Calling a Factory a Service or naming it `someService` is confusing.  The difference between the two is already [quite](http://stackoverflow.com/questions/14324451/angular-service-vs-angular-factory) [confusing](http://stackoverflow.com/questions/16596569/angularjs-what-is-a-factory) without mixing up the terminology.
+
 
 # When introducing minification
 Use these rules when working with MEAN or Rails+Angular stacks or anywhere else where you might encounter minification.  They can be introduced after students have gained some familiarity with Angular.
