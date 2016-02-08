@@ -2,7 +2,7 @@
 
 There are many good styleguides already available for Angular: [here](https://github.com/toddmotto/angular-styleguide) and [here](https://github.com/johnpapa/angular-styleguide)  So, why do we need another one?
 
-This styleguide is different in that it is focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set guidelines to ensure that syntax across lessons is the same, while slowly introducing additional syntactical complexity. 
+This styleguide is different in that it is focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set guidelines to ensure that syntax across lessons is the same, while slowly introducing additional syntactical complexity.
 
 **tldr; This style-guide is aimed at students new to Angular, not angular professionals.**
 
@@ -15,11 +15,11 @@ Use `data-` prefixed attributes instead of raw angular attributes/directives.  T
 
 Avoid:
 ```html
- <div ng-controller="MainCtrl">
+ <div ng-controller="MainController">
 ```
 Recommended:
 ```html
- <div data-ng-controller="MainCtrl">
+ <div data-ng-controller="MainController">
 ```
 
 ### controller as syntax
@@ -40,14 +40,14 @@ Recommended:
 </div>
 ```
 
-### define named functions for each component 
-Declare named functions for controllers and other components. 
+### define named functions for each component
+Declare named functions for controllers and other components.
 
 Avoid:
 ```js
 angular
   .module('app', [])
-  .controller('MainCtrl', function MainCtrl () {
+  .controller('MainController', function MainController () {
 
   })
   .service('SomeFactory', function SomeFactory () {
@@ -63,7 +63,7 @@ angular
   .factory('SomeFactory', SomeFactory);
 
 
-function MainCtrl () {
+function MainController () {
 
 }
 function SomeFactory () {
@@ -72,12 +72,12 @@ function SomeFactory () {
  ```
 
 ### use dot chaining to build the app rather than repetition of an app variable
-In general multi-line dot-chaining is more prone to error, but since we're also avoiding in-line call-backs, the issue should be greatly reduced and overall readability should remain high.  This also follows what other style-guides suggest. 
+In general multi-line dot-chaining is more prone to error, but since we're also avoiding in-line call-backs, the issue should be greatly reduced and overall readability should remain high.  This also follows what other style-guides suggest.
 
 Avoid:
 ```js
 var app = angular.module('app', []);
-app.controller('MainCtrl', function() {
+app.controller('MainController', function() {
 });
 app.factory('SomeFactory', function() {
 });
@@ -87,7 +87,7 @@ Recommended:
 ```js
 angular
   .module('app', [])
-  .controller('MainCtrl', MainCtrl)
+  .controller('MainController', MainController)
   .factory('SomeFactory', SomeFactory);
 ```
 
@@ -114,6 +114,9 @@ Prefer:
 ```
 function libraryController() { }
 ```
+### use long-form names for controllers and other components
+
+Use `mapController` not `mapCtrl`.
 
 ### Filenames identify component separated by `.`
 
@@ -196,8 +199,8 @@ Service Pattern - Avoid:
 ```js
 function someService(){
 	this.doSomething = function(){
-    	//…
-  	}
+		//…
+	}
 }
 ```
 
@@ -208,7 +211,7 @@ function someFactory(){
 	dataObj.doSomething = function(){
 		//...
 	}
- 	return dataObj;
+	return dataObj;
 }
 ```
 
@@ -226,7 +229,7 @@ Use $inject vs. inline annotation.
 
 This has better readability and lower likelihood of syntax errors.  Try to keep the `$inject` call near the function it refers to.
 
-Avoid: 
+Avoid:
 ```js
 angular
   .module('app')
@@ -263,7 +266,7 @@ These rules should be mentioned at some point, but not right away.
 
 ### mention (but don't use) $scope in controllers
 
-Since we're using controller-as and `this` in our controllers, `$scope` will only rarely be used.  However, students are going to come across blogs, older code and stackoverflow posts that use `$scope` frequently.  We should mention how this works, at least in writing, but not right away. 
+Since we're using controller-as and `this` in our controllers, `$scope` will only rarely be used.  However, students are going to come across blogs, older code and stackoverflow posts that use `$scope` frequently.  We should mention how this works, at least in writing, but not right away.
 
 > Note: when using $scope one should always pass objects, not scalars.
 > Use `$scope.obj = {}` rather than `$scope.foo = 'adsf'`
