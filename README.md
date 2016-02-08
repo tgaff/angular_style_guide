@@ -91,6 +91,9 @@ angular
   .factory('SomeFactory', SomeFactory);
 ```
 
+
+
+
 <!-- NAMING -->
 # Naming
 
@@ -115,6 +118,10 @@ function libraryController() { }
 ### Filenames identify component separated by `.`
 
 The syntax should be `{feature}.{component}.js` or `logger.service.js`, `library.controller.js`.
+
+
+
+
 
 
 <!-- DIRECTIVES -->
@@ -159,9 +166,6 @@ angular
 
 [code from](https://github.com/toddmotto/angular-styleguide#directives)
 
-# When working with factories and services
-Use these guidelines when introducing factories and services.
-
 ### Don't ng-* prefix directives.
 
 This could conflict with newer versions.
@@ -176,6 +180,9 @@ Prefer:
 <div drag-upload>
 ```
 
+
+# When working with factories and services
+Use these guidelines when introducing factories and services.
 
 ### Factories vs. Services
 
