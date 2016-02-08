@@ -1,10 +1,10 @@
 # Purpose
 
-There are many good styleguides already available for Angular. [here](https://github.com/toddmotto/angular-styleguide) and [here](https://github.com/johnpapa/angular-styleguide)  So, why do we need another one?
+There are many good styleguides already available for Angular: [here](https://github.com/toddmotto/angular-styleguide) and [here](https://github.com/johnpapa/angular-styleguide)  So, why do we need another one?
 
 This styleguide is different in that it is focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set guidelines to ensure that syntax across lessons is the same, while slowly introducing additional syntactical complexity. 
 
-**tldr;** This style-guide is aimed at students new to Angular, not angular professionals.
+**tldr; This style-guide is aimed at students new to Angular, not angular professionals.**
 
 # Immediate Guidelines:
 These guidelines are suggested for all code given to students.  
@@ -24,7 +24,7 @@ Recommended:
 
 ### controller as syntax
 
-Use Controller as syntax, which promotes the use of dot syntax in HTML to indicate where variables come from.  This also means it is possible to safely use scalars on the controller.  You must also avoid the use of `$scope` and use `this` instead in your controllers.
+Use Controller as syntax, which promotes the demystifying use of dot syntax in HTML to indicate where variables come from.  This also means it is possible to safely use scalars on the controller.  You must also avoid the use of `$scope` and use `this` instead in your controllers.
 
 Avoid:
 ```html
@@ -50,7 +50,7 @@ angular
   .controller('MainCtrl', function MainCtrl () {
 
   })
-  .service('SomeService', function SomeService () {
+  .service('SomeFactory', function SomeFactory () {
 
   });
 ```
@@ -60,13 +60,13 @@ Recommended:
 angular
   .module('app', [])
   .controller('MainCtrl', MainCtrl)
-  .service('SomeService', SomeService);
+  .factory('SomeFactory', SomeFactory);
 
 
 function MainCtrl () {
 
 }
-function SomeService () {
+function SomeFactory () {
 
 }
  ```
